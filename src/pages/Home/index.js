@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Touchable } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
 
 import Jerseys from '../../component/Jerseys';
 import { jerseysData } from '../../productInfo.js' ;
 
 export default function Home() {
- const navigation = useNavigation();
  const jersey = jerseysData;
 
  return (
@@ -79,8 +77,6 @@ export default function Home() {
 
           <View style={{height: 300}}></View>
         </ScrollView>
-
-
      </View>
    </View>
   );

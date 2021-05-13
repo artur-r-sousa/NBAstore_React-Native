@@ -70,12 +70,7 @@ const jerseysData = {
         backSidePath: require('../src/assets/warriors_back.jpg'),
         title: "GSW Stephen Curry Nike Royal 2020/21 Swingman Jersey",
         description: "Capture your team's distinct identity when you grab this Stephen Curry Golden State Warriors Icon Edition Swingman jersey from Nike. It features classic trims and Golden State Warriors graphics along with Nike Dry and Dri-FIT technologies for added comfort. Before you watch the next game, grab this incredible jersey so everyone knows your fandom is on the cutting edge."
-    },
-
-
-
-
-    
+    },   
 }
 
 export {jerseysData};
