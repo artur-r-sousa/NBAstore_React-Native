@@ -51,28 +51,28 @@ export default function Home() {
           <Text style={styles.text}>LANÇAMENTOS (20/21)</Text>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys img={jersey.nets.imgPath} cost={jersey.nets.cost} >
+              <Jerseys img={jersey.nets.imgPath} cost={jersey.nets.cost} teamName = 'nets'>
                 {[jersey.nets.team, " ", jersey.nets.number, " ", jersey.nets.playerName]}
               </Jerseys>
-              <Jerseys img={jersey.lakers.imgPath} cost={jersey.lakers.cost}>
+              <Jerseys img={jersey.lakers.imgPath} cost={jersey.lakers.cost} teamName = 'lakers'>
                 {[jersey.lakers.team, " ", jersey.lakers.number, " ", jersey.lakers.playerName]}
               </Jerseys>
           </View>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys img={jersey.gsw.imgPath} cost={jersey.gsw.cost}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around'}} >
+              <Jerseys img={jersey.gsw.imgPath} cost={jersey.gsw.cost} teamName = 'gsw'>
                 {[jersey.gsw.team, " ", jersey.gsw.number, " ", jersey.gsw.playerName]}
               </Jerseys>
-              <Jerseys img={jersey.clippers.imgPath} cost={jersey.clippers.cost}>
+              <Jerseys img={jersey.clippers.imgPath} cost={jersey.clippers.cost} teamName = 'clippers'> 
                 {[jersey.clippers.team, " ", jersey.clippers.number, " ", jersey.clippers.playerName]}
               </Jerseys>
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys img={jersey.phila.imgPath} cost={jersey.phila.cost}>
+              <Jerseys img={jersey.phila.imgPath} cost={jersey.phila.cost} teamName = 'phila'>
                 {[jersey.phila.team, " ", jersey.phila.number, " ", jersey.phila.playerName]}
               </Jerseys>
-              <Jerseys img={jersey.mavericks.imgPath} cost={jersey.mavericks.cost}>
+              <Jerseys img={jersey.mavericks.imgPath} cost={jersey.mavericks.cost} teamName = 'mavericks'>
                 {[jersey.mavericks.team, " ", jersey.mavericks.number, " ", jersey.mavericks.playerName]}
               </Jerseys>
           </View>

@@ -13,7 +13,7 @@ export default function Jerseys(props) {
     }
 
  return (
-   <TouchableOpacity style={styles.container} onPress={()=> {navigation.navigate('Detail')}}>
+   <TouchableOpacity style={styles.container} onPress={()=> {navigation.navigate('Detail', {team: props.teamName})}}>
        <Image
         source={props.img}
         style={StyleSheet.jerseyImg}

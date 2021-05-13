@@ -3,17 +3,20 @@ import { View, Text, Image, TouchableOpacity, StyleSheet,ScrollView } from 'reac
 import SizeButton from '../../component/SizeButton';
 import BuyButton from '../../component/BuyButton';
 import Footer from '../../component/Footer';
+import { jerseysData } from '../../productInfo.js';
 
-export default function Detail({ navigation }) {
+export default function Detail({ route, navigation }) {
 
-  const frontSide = require("../../assets/lakers_front.jpg");
-  const backSide = require('../../assets/lakers_back.jpg');
+  const { team } = route.params;
+  const jerseyData = jerseysData[team];
+  const frontSide = jerseyData.frontSidePath;
+  const backSide = jerseyData.backSidePath;
 
   const [jersey, setJersey] = useState(frontSide)
   
   useEffect(()=>{
     navigation.setOptions({
-      headerTitle: 'Detalhes'
+      headerTitle: jerseyData.team
     })
   })
 
@@ -31,7 +34,7 @@ export default function Detail({ navigation }) {
         </View>
 
         <View opacity={0.4}>
-          <Text style={[styles.title, { fontSize: 30 }]}>Lakers Jersey #23 Lebron James</Text>
+          <Text style={[styles.title, { fontSize: 30 }]}>{[jerseyData.team, " ", jerseyData.number, " ", jerseyData.playerName]}</Text>
         </View>
 
         <View style={{flexDirection: 'row', width: '100%'}}>
@@ -47,17 +50,12 @@ export default function Detail({ navigation }) {
 
         <View style={styles.textContent}>
           <Text style={styles.textTitle}>
-            Lakers #23 Gold Hardwood Classic
+            {jerseyData.title}
           </Text>
           
           <Text style={styles.textContent}>
-            Through extensive research and attention to detail, Mitchell & Ness Authentics are recreations of the original uniforms worn by the legends of the game. They only use premium fabrics and application as they bring these pieces of history to life. It is an honor to celebrate the history of the game through the uniforms and logos of the icons of sports. Join the celebration with this Los Angeles Lakers Kobe Bryant 2008-09 Hardwood Classics Authentic Jersey.
+            {jerseyData.description}
           </Text>
-
-          <Text style={styles.textList}>
-            - Material: 100% Poliester, Mesh
-          </Text>
-
         </View>
 
         <BuyButton/>
