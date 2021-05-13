@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Jerseys(props) {
+    const navigation = useNavigation();
 
     function filterDesc(desc){
         if(desc.length < 27) {
@@ -11,7 +13,7 @@ export default function Jerseys(props) {
     }
 
  return (
-   <TouchableOpacity style={styles.container} onPress={props.onClick}>
+   <TouchableOpacity style={styles.container} onPress={()=> {navigation.navigate('Detail')}}>
        <Image
         source={props.img}
         style={StyleSheet.jerseyImg}

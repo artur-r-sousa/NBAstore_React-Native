@@ -3,10 +3,12 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Touchable 
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import Jerseys from '../../component/Jerseys'
+import Jerseys from '../../component/Jerseys';
+import { jerseysData } from '../../productInfo.js' ;
 
 export default function Home() {
  const navigation = useNavigation();
+ const jersey = jerseysData;
 
  return (
    <View style={styles.container}>
@@ -45,38 +47,33 @@ export default function Home() {
         </View>        
         <View style={styles.line}/>
 
-
-
         <ScrollView>
           <Text style={styles.text}>LANÇAMENTOS (20/21)</Text>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys img={require('../../assets/icon_nets_front.jpg')} cost="R$ 479,90" onClick={()=>{navigation.navigate('Detail')}}>
-                Nets 11 Kyrie Irving
+              <Jerseys img={jersey.nets.imgPath} cost={jersey.nets.cost} >
+                {[jersey.nets.team, " ", jersey.nets.number, " ", jersey.nets.playerName]}
               </Jerseys>
-              <Jerseys img={require('../../assets/icon_lakers_front.jpg')} cost="R$ 479,90" onClick={()=>{navigation.navigate('Detail')}}>
-                Lakers 23 Lebron James 
-              </Jerseys>
-          </View>
-
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys img={require('../../assets/icon_warriors_front.png')} cost="R$ 479,90" onClick={()=>{alert('clicou')}}>
-                G.S.W. 30 Stephen Curry
-              </Jerseys>
-              <Jerseys img={require('../../assets/icon_clippers_front.jpg')} cost="R$ 479,90" onClick={()=>{alert('clicou')}}>
-                Clippers Paul George
+              <Jerseys img={jersey.lakers.imgPath} cost={jersey.lakers.cost}>
+                {[jersey.lakers.team, " ", jersey.lakers.number, " ", jersey.lakers.playerName]}
               </Jerseys>
           </View>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
-              <Jerseys 
-              img={require('../../assets/icon_phila_front.jpg')} 
-              cost="R$ 479,90"
-              onClick={()=>{alert('clicou')}}>
-                76ers Joel Embiid 21
+              <Jerseys img={jersey.gsw.imgPath} cost={jersey.gsw.cost}>
+                {[jersey.gsw.team, " ", jersey.gsw.number, " ", jersey.gsw.playerName]}
               </Jerseys>
-              <Jerseys img={require('../../assets/icon_dallas_front.png')} cost="R$ 479,90" onClick={()=>{alert('clicou')}}>
-                Mavericks 77 Luka Doncic
+              <Jerseys img={jersey.clippers.imgPath} cost={jersey.clippers.cost}>
+                {[jersey.clippers.team, " ", jersey.clippers.number, " ", jersey.clippers.playerName]}
+              </Jerseys>
+          </View>
+
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
+              <Jerseys img={jersey.phila.imgPath} cost={jersey.phila.cost}>
+                {[jersey.phila.team, " ", jersey.phila.number, " ", jersey.phila.playerName]}
+              </Jerseys>
+              <Jerseys img={jersey.mavericks.imgPath} cost={jersey.mavericks.cost}>
+                {[jersey.mavericks.team, " ", jersey.mavericks.number, " ", jersey.mavericks.playerName]}
               </Jerseys>
           </View>
 
