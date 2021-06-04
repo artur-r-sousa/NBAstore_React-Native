@@ -58,7 +58,7 @@ export default function Detail({ route, navigation }) {
           </Text>
         </View>
 
-        <BuyButton/>
+        <BuyButton addToList={jerseyData}/>
 
         <View style={styles.line}/>
 
@@ -104,6 +104,4 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000',
     marginVertical: '2%'
   }
-
-
 })

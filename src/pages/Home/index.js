@@ -1,12 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Touchable } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Touchable, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 import Jerseys from '../../component/Jerseys';
-import { jerseysData } from '../../productInfo.js' ;
+import { jerseysData } from '../../productInfo.js';
 
 export default function Home() {
  const jersey = jerseysData;
+ const navigation = useNavigation();
+ const categories = ["TENIS", "REGATAS", "CAMISETAS"];
 
  return (
    <View style={styles.container}>
@@ -16,16 +19,24 @@ export default function Home() {
         style={styles.image}
         />
 
-
         <View style={styles.labelContainer}>
-          <Text style={[styles.text, { color: '#CECECF' }]}>TENIS</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>•</Text>
-          <Text style={styles.text}>REGATAS</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>•</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>CAMISETAS</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>•</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>SHORTS</Text>
-          <Text style={[styles.text, { color: '#CECECF' }]}>•</Text>
+          {categories.map((value, key) => {
+            return(
+              <View style={styles.labelContainer} key={key}>
+                <Text style={[styles.text, { color: '#CECECF', marginRight:'2%' }]}>{categories[key]}</Text>
+                <Text style={[styles.text, { color: '#CECECF', marginLeft: 12 }]}>•</Text>
+              </View>
+            )
+          })}
+            
+          <TouchableOpacity style={{position: 'absolute', right: 0, alignSelf: 'center'}} onPress={()=>{navigation.navigate('Checkout')}}>
+              <MaterialIcons
+                name="shopping-cart"
+                size={24}
+                color="#000"
+                
+              />
+            </TouchableOpacity>
         </View>
         <View style={styles.line}/>
         <View style={styles.textContainer}>
@@ -46,7 +57,7 @@ export default function Home() {
         <View style={styles.line}/>
 
         <ScrollView>
-          <Text style={styles.text}>LANÇAMENTOS (20/21)</Text>
+          <Text style={[styles.text, {marginLeft: 16}]}>LANÇAMENTOS (20/21)</Text>
 
           <View style={{ flexDirection: 'row', justifyContent: 'space-around'}}>
               <Jerseys img={jersey.nets.imgPath} cost={jersey.nets.cost} teamName = 'nets'>
@@ -75,7 +86,7 @@ export default function Home() {
               </Jerseys>
           </View>
 
-          <View style={{height: 300}}></View>
+          <View style={{height: (Dimensions.get('screen').height * 40) / 100 }}></View>
         </ScrollView>
      </View>
    </View>
@@ -89,11 +100,11 @@ const styles= StyleSheet.create({
     backgroundColor: '#FFF'
   },
   header:{
-    marginBottom: 8
+
   },
   image: {
     width: '100%',
-    height: 150,
+    height: (Dimensions.get('screen').height * 20) / 100,
     resizeMode: 'contain',  
   },
   textContainer: {
@@ -109,7 +120,8 @@ const styles= StyleSheet.create({
   text: {
     fontFamily: 'Anton_400Regular',
     fontSize: 26,
-    marginHorizontal: '1%' 
+    
+ 
   },
   line: {
     borderBottomColor: '#D8D8D8',

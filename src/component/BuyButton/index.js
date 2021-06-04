@@ -1,10 +1,20 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function BuyButton() {
+import { buyList } from '../../buyList.js';
+
+export default function BuyButton(props) {
  return (
    <View style={styles.container}>
-       <TouchableOpacity style={styles.btnContainer}>
+       <TouchableOpacity style={styles.btnContainer} 
+        onPress={()=>{
+            if(buyList.includes(props.addToList)) {
+                alert('Produto ja existe no seu carrinho')
+            } else {
+                buyList.push(props.addToList);
+                alert(props.addToList.title + " adicionado ao carrinho")
+            }
+        }}>
             <Text style={styles.title}>COMPRAR</Text>
        </TouchableOpacity>
        

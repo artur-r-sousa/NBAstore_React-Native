@@ -1,0 +1,3 @@
+const buyList = [];
+
+export { buyList };
